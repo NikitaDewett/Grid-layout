@@ -10,6 +10,9 @@ import "./styles.scss";
 const Gallery = () => {
   const [isLoading, setLoading] = useState(false);
   const [photosItemsList, setPhotosItemsList] = useState([]);
+  const [clientWidth, setClientWidth] = useState(document?.documentElement?.clientWidth);
+  
+  window.onresize = () => setClientWidth(document.documentElement.clientWidth);
 
   const loadImages = () => {
     setLoading(true);
@@ -23,6 +26,16 @@ const Gallery = () => {
       })
   };
 
+  const calcColsCount = () => {
+    if(clientWidth > 820){
+      return 3;
+    } else if(clientWidth >= 768){
+      return 2;
+    } else {
+      return 1;
+    }
+  }
+
   useEffect(() => {
     loadImages();
   }, [])
@@ -33,9 +46,7 @@ const Gallery = () => {
     <>
       {isLoading && <Loader absolute />}
       <div className="gallery">
-        <div className="gallery-container">
-          <GalleryGrid photosItemsList={photosItemsList} />
-        </div>
+          <GalleryGrid photosItemsList={photosItemsList} colsCount={calcColsCount()}/>
       </div>
     </>
   );
