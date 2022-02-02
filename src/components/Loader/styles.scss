@@ -1,0 +1,13 @@
+.custom-loader {
+  &.MuiCircularProgress-root {
+    color: #AB22C0;
+    width: 52px;
+    height: 52px;
+    &.absolute {
+      position: absolute;
+      z-index: 2;
+      top: calc(50% - 20px);
+      left: calc(50% - 20px);
+    }
+  }
+}
