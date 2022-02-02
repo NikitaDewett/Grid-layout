@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { ImageListItem, ImageList, ImageListItemBar, TextField } from "@mui/material";
+
 import "./styles.scss";
 
 const GalleryGrid = ({ photosItemsList, colsCount }) => {
   const [filterInput, setFilterInput] = useState("");
+
   const defaultFilter = val => {
     return val?.user?.username.includes(filterInput);
   }
-  console.log(filterInput)
+
   return (
     <div className="gallery-container">
       <TextField

@@ -1,5 +1,6 @@
 import React from "react";
 import { CircularProgress } from "@mui/material";
+
 import "./styles.scss";
 
 const Loader = ({ absolute, size = 40 }) => (
