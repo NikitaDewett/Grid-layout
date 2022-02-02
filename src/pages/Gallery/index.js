@@ -1,4 +1,4 @@
-import { ImageList, ImageListItem } from "@mui/material";
+import { TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import GalleryGrid from "../../components/GalleryGrid";
 import Loader from "../../components/Loader";
@@ -33,7 +33,9 @@ const Gallery = () => {
     <>
       {isLoading && <Loader absolute />}
       <div className="gallery">
-        <GalleryGrid photosItemsList={photosItemsList}/>
+        <div className="gallery-container">
+          <GalleryGrid photosItemsList={photosItemsList} />
+        </div>
       </div>
     </>
   );
