@@ -18,10 +18,10 @@ const Gallery = () => {
     getImages()
       .then((res) => {
         setLoading(false);
-        toast.error("An error occured, try again!");
         setPhotosItemsList(res?.data);
       })
       .catch((err) => {
+        toast.error("An error occured, try again!");
         setLoading(false);
       })
   };
